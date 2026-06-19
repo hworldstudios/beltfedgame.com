@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BELTFED</title>
+    <meta name="description" content="BELTFED: Roguelike Factory Defence" />
+    <meta name="theme-color" content="#0c0c0e" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BELTFED" />
+    <meta property="og:title" content="BELTFED" />
+    <meta
+      property="og:description"
+      content="BELTFED: Roguelike Factory Defence"
+    />
+    <meta property="og:image" content="assets/og-image.jpg" />
+    <meta property="og:url" content="https://beltfedgame.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BELTFED" />
+    <meta
+      name="twitter:description"
+      content="BELTFED: Roguelike Factory Defence"
+    />
+    <meta name="twitter:image" content="assets/og-image.jpg" />
+
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      const CONFIG = {
+        steamWishlist: "https://steam.com",
+
+        youtubeId: "7Gf3Lm0161g",
+
+        socials: {
+          x: "https://x.com/beltfedgame",
+          youtube: "https://www.youtube.com/channel/UCvdlX-Bw5GphyX91nGGiDsA",
+          discord: "https://discord.com",
+          reddit: "https://reddit.com",
+          bluesky: "https://bsky.app/profile/beltfedgame.com",
+          threads: "https://www.threads.com/@beltfedgame",
+          instagram: "https://www.instagram.com/beltfedgame/",
+          tiktok: "https://www.tiktok.com/@beltfedgame",
+          facebook: "https://www.facebook.com/profile.php?id=61591068773479",
+          more: "https://linktr.ee/beltfedgame",
+        },
+
+        devSite: "https://helloworldstudios.io",
+      };
+    </script>
+
+    <style>
+      :root {
+        --bg: #0c0c0e;
+        --bg-alt: #131316;
+        --surface: #1b1b1f;
+        --text: #f4f4f2;
+        --muted: #a0a0a4;
+        --accent: #ff7a18;
+        --accent-2: #ffb347;
+        --border: #2a2a30;
+        --radius: 12px;
+        --maxw: 1100px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .section {
+        width: 100%;
+        padding: clamp(3rem, 8vw, 6rem) 1.25rem;
+      }
+
+      .inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+      }
+
+      .btn-wishlist {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        min-height: 56px;
+        padding: 0.85rem 1.9rem;
+        font-size: clamp(1rem, 2.4vw, 1.25rem);
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #1a1205;
+        background: linear-gradient(180deg, var(--accent-2), var(--accent));
+        border: none;
+        border-radius: var(--radius);
+        box-shadow: 0 8px 24px rgba(255, 122, 24, 0.35);
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          filter 0.15s ease;
+      }
+      .btn-wishlist:hover,
+      .btn-wishlist:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(255, 122, 24, 0.5);
+        filter: brightness(1.05);
+      }
+      .btn-wishlist:active {
+        transform: translateY(0);
+      }
+      .btn-wishlist .steam-ico,
+      .btn-wishlist .btn-ico {
+        width: 26px;
+        height: 26px;
+        flex: none;
+      }
+      .btn-discord {
+        color: #fff;
+        background: #5865f2;
+        box-shadow: 0 8px 24px rgba(88, 101, 242, 0.35);
+      }
+      .btn-discord:hover,
+      .btn-discord:focus-visible {
+        box-shadow: 0 12px 30px rgba(88, 101, 242, 0.5);
+      }
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1.25rem 5rem;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(12, 12, 14, 0.45) 0%,
+            rgba(12, 12, 14, 0.55) 55%,
+            rgba(12, 12, 14, 0.95) 100%
+          ),
+          url("assets/hero.jpg") center / cover no-repeat;
+      }
+      .hero__logo {
+        width: min(560px, 82vw);
+        height: auto;
+        margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+        filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.6));
+      }
+      .hero__buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      .scroll-cue {
+        position: absolute;
+        bottom: 1.4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+        opacity: 0.8;
+      }
+      .scroll-cue .chev {
+        width: 16px;
+        height: 16px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        animation: bob 1.8s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: rotate(45deg) translate(0, 0);
+        }
+        50% {
+          transform: rotate(45deg) translate(3px, 3px);
+        }
+      }
+
+      .trailer {
+        background: var(--bg-alt);
+        text-align: center;
+      }
+      .section-title {
+        margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .video-frame {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto clamp(2rem, 5vw, 3rem);
+        aspect-ratio: 16 / 9;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        background: #000;
+      }
+      .video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .video-frame .placeholder {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .socials {
+        background: var(--bg);
+        text-align: center;
+      }
+      .socials .section-title {
+        margin-bottom: clamp(1.25rem, 3vw, 2rem);
+      }
+      .social-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(0.75rem, 2vw, 1.1rem);
+        margin-top: clamp(1.25rem, 3vw, 2rem);
+      }
+      .social-btn {
+        width: 56px;
+        height: 56px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease,
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .social-btn svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+      .social-btn:hover,
+      .social-btn:focus-visible {
+        transform: translateY(-3px);
+        background: var(--accent);
+        color: #1a1205;
+        border-color: var(--accent);
+      }
+
+      .footer {
+        background: var(--bg-alt);
+        border-top: 1px solid var(--border);
+        text-align: center;
+        padding: clamp(2.5rem, 6vw, 4rem) 1.25rem;
+      }
+      .footer__label {
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin: 0 0 1.1rem;
+      }
+      .footer__dev {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.9rem;
+        text-decoration: none;
+        transition: opacity 0.15s ease;
+      }
+      .footer__dev:hover {
+        opacity: 0.8;
+      }
+      .footer__name {
+        color: var(--text);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        font-size: clamp(0.8rem, 2.4vw, 1.1rem);
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        /* compensate for trailing letter-spacing to keep text centered */
+        padding-left: 0.35em;
+      }
+      .footer__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem 0.9rem;
+        margin-top: 3.75rem;
+      }
+      .footer__copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .footer__policy {
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.15s ease;
+      }
+      .footer__policy:hover,
+      .footer__policy:focus-visible {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .scroll-cue .chev {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="hero">
+      <img class="hero__logo" src="assets/logo.png" alt="BELTFED" />
+      <div class="hero__buttons">
+        <a
+          class="btn-wishlist"
+          data-link="steam"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            class="steam-ico"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+          >
+            <path
+              d="M12 2C6.6 2 2.2 6.1 2 11.3l5.4 2.2a3 3 0 0 1 1.7-.5l2.4-3.5v-.1a4 4 0 1 1 4 4h-.1l-3.4 2.5a3 3 0 0 1-6 .3L2.3 14.7C3.5 19 7.4 22 12 22a10 10 0 0 0 0-20Zm-3.3 15.2-1.2-.5a2.3 2.3 0 0 0 4.2-.6 2.3 2.3 0 0 0-3-2.8l1.3.5a1.7 1.7 0 1 1-1.3 3.1ZM18 9.5a2.7 2.7 0 1 1-5.3 0 2.7 2.7 0 0 1 5.3 0Zm-4.6 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"
+            />
+          </svg>
+          Wishlist on Steam
+        </a>
+      </div>
+      <a class="scroll-cue" href="#trailer" aria-label="Scroll to trailer">
+        Trailer
+        <span class="chev" aria-hidden="true"></span>
+      </a>
+    </header>
+
+    <section id="trailer" class="section trailer">
+      <div class="inner reveal">
+        <h2 class="section-title">Official Trailer</h2>
+        <div class="video-frame" id="videoFrame">
+          <div class="placeholder">
+            Trailer coming soon — set the YouTube ID in CONFIG
+          </div>
+        </div>
+        <a
+          class="btn-wishlist"
+          data-link="steam"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            class="steam-ico"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+          >
+            <path
+              d="M12 2C6.6 2 2.2 6.1 2 11.3l5.4 2.2a3 3 0 0 1 1.7-.5l2.4-3.5v-.1a4 4 0 1 1 4 4h-.1l-3.4 2.5a3 3 0 0 1-6 .3L2.3 14.7C3.5 19 7.4 22 12 22a10 10 0 0 0 0-20Zm-3.3 15.2-1.2-.5a2.3 2.3 0 0 0 4.2-.6 2.3 2.3 0 0 0-3-2.8l1.3.5a1.7 1.7 0 1 1-1.3 3.1ZM18 9.5a2.7 2.7 0 1 1-5.3 0 2.7 2.7 0 0 1 5.3 0Zm-4.6 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"
+            />
+          </svg>
+          Wishlist on Steam
+        </a>
+      </div>
+    </section>
+
+    <section class="section socials">
+      <div class="inner reveal">
+        <h2 class="section-title">Follow the development</h2>
+        <a
+          class="btn-wishlist btn-discord"
+          data-link="discord"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            class="btn-ico"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+          >
+            <path
+              d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"
+            />
+          </svg>
+          Join the Discord
+        </a>
+        <nav class="social-row" id="socialRow" aria-label="Social media"></nav>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="inner reveal">
+        <p class="footer__label">A game by</p>
+        <a
+          class="footer__dev"
+          data-link="dev"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="footer__name">Hello World Studios</span>
+        </a>
+        <div class="footer__meta">
+          <p class="footer__copy">
+            &copy; <span id="year"></span> Hello World Studios. All rights
+            reserved.
+          </p>
+          <a
+            class="footer__policy"
+            href="https://helloworldstudios.io/policy"
+            target="_blank"
+            rel="noopener"
+            >Privacy Policy</a
+          >
+          <a class="footer__policy" href="mailto:hello@helloworldstudios.io"
+            >hello@helloworldstudios.io</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        document.querySelectorAll('[data-link="steam"]').forEach(function (el) {
+          if (CONFIG.steamWishlist)
+            el.setAttribute("href", CONFIG.steamWishlist);
+        });
+
+        document.querySelectorAll('[data-link="dev"]').forEach(function (el) {
+          if (CONFIG.devSite) el.setAttribute("href", CONFIG.devSite);
+        });
+
+        document
+          .querySelectorAll('[data-link="discord"]')
+          .forEach(function (el) {
+            if (CONFIG.socials.discord)
+              el.setAttribute("href", CONFIG.socials.discord);
+          });
+
+        if (CONFIG.youtubeId && CONFIG.youtubeId !== "REPLACE_ME") {
+          const frame = document.getElementById("videoFrame");
+          frame.innerHTML = "";
+          const iframe = document.createElement("iframe");
+          iframe.src =
+            "https://www.youtube-nocookie.com/embed/" +
+            encodeURIComponent(CONFIG.youtubeId) +
+            "?rel=0";
+          iframe.title = "BELTFED — Official Trailer";
+          iframe.loading = "lazy";
+          iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.setAttribute("allowfullscreen", "");
+          frame.appendChild(iframe);
+        }
+
+        const ICONS = {
+          x: {
+            label: "X (Twitter)",
+            path: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
+          },
+          youtube: {
+            label: "YouTube",
+            path: "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z",
+          },
+          discord: {
+            label: "Discord",
+            path: "M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z",
+          },
+          reddit: {
+            label: "Reddit",
+            rule: "evenodd",
+            path: "M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.991 0 1.794.802 1.794 1.793 0 .733-.439 1.354-1.064 1.636a3.11 3.11 0 0 1 .04.5c0 2.531-2.947 4.582-6.585 4.582-3.637 0-6.584-2.051-6.584-4.582 0-.16.013-.323.04-.483a1.795 1.795 0 0 1-1.043-1.633c0-.991.802-1.793 1.793-1.793.477 0 .898.182 1.207.49 1.207-.86 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.07-.643zM9.25 12c-.69 0-1.25.56-1.25 1.25 0 .687.56 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z",
+          },
+          bluesky: {
+            label: "Bluesky",
+            path: "M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z",
+          },
+          threads: {
+            label: "Threads",
+            path: "M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.802-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.36-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Z",
+          },
+          instagram: {
+            label: "Instagram",
+            path: "M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4577-.72 2.1228-1.3881.6651-.668 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.3211 18.2014.1197 16.9239.0645 15.6463.0093 15.2371-.0014 11.9789.0048 8.7208.011 8.3121.0252 7.0301.084m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.0508-1.169.2461-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.4229-.1649 1.0576-.3618 2.2272-.4174 1.2645-.0598 1.6442-.0723 4.848-.0794 3.2037-.007 3.5834.0053 4.8496.0608 1.169.0511 1.8051.2452 2.228.408.5608.216.96.4762 1.3816.895.4217.4188.6816.8184.9003 1.3783.1648.4221.3619 1.0566.4173 2.226.0599 1.2645.0732 1.6442.0796 4.848.0063 3.2037-.0052 3.5834-.061 4.848-.051 1.17-.245 1.8055-.4081 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1647-1.0577.3617-2.2262.4174-1.2645.0594-1.6442.0719-4.8487.0789-3.2045.007-3.5825-.0061-4.848-.0606M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.7708-6.1565-6.174-6.1498-3.4032.0067-6.1569 2.7708-6.1496 6.1738M8 12.0085a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0085",
+          },
+          tiktok: {
+            label: "TikTok",
+            path: "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z",
+          },
+          facebook: {
+            label: "Facebook",
+            path: "M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z",
+          },
+          more: {
+            label: "More links",
+            path: "M11 4h2v7h7v2h-7v7h-2v-7H4v-2h7z",
+          },
+        };
+        const row = document.getElementById("socialRow");
+        ["x", "reddit", "instagram", "tiktok", "more"].forEach(
+          function (key) {
+            const url = CONFIG.socials[key];
+            if (!url) return;
+            const def = ICONS[key];
+            const a = document.createElement("a");
+            a.className = "social-btn";
+            a.href = url;
+            a.target = "_blank";
+            a.rel = "noopener";
+            a.setAttribute("aria-label", def.label);
+            a.title = def.label;
+            a.innerHTML =
+              '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="' +
+              (def.rule || "nonzero") +
+              '" d="' +
+              def.path +
+              '"/></svg>';
+            row.appendChild(a);
+          },
+        );
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          obs.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
