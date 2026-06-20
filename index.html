@@ -391,6 +391,22 @@
         opacity: 1;
         text-decoration: underline;
       }
+      @media (max-width: 600px) {
+        .footer__copy {
+          order: 1;
+          flex-basis: 100%;
+          margin-top: 0.5rem;
+        }
+        .footer__policy {
+          font-size: 0.58rem;
+        }
+        .footer__meta > * + *::before {
+          margin: 0 0.4rem;
+        }
+        .footer__copy + .footer__policy::before {
+          content: none;
+        }
+      }
 
       .reveal {
         opacity: 0;
