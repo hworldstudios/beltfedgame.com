@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>BELTFED</title>
-    <meta name="description" content="BELTFED: Roguelike Factory Defence" />
+    <meta name="description" content="BELTFED: Roguelike Factory Defense" />
     <meta name="theme-color" content="#0c0c0e" />
 
     <meta property="og:type" content="website" />
@@ -13,7 +13,7 @@
     <meta property="og:title" content="BELTFED" />
     <meta
       property="og:description"
-      content="BELTFED: Roguelike Factory Defence"
+      content="BELTFED: Roguelike Factory Defense"
     />
     <meta property="og:image" content="assets/og-image.jpg" />
     <meta property="og:url" content="https://beltfedgame.com" />
@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="BELTFED" />
     <meta
       name="twitter:description"
-      content="BELTFED: Roguelike Factory Defence"
+      content="BELTFED: Roguelike Factory Defense"
     />
     <meta name="twitter:image" content="assets/og-image.jpg" />
 
@@ -406,6 +406,12 @@
         .footer__copy + .footer__policy::before {
           content: none;
         }
+        .footer__policy:last-of-type {
+          flex-basis: 100%;
+        }
+        .footer__policy:last-of-type::before {
+          content: none;
+        }
       }
 
       .reveal {
@@ -439,7 +445,7 @@
   <body>
     <header class="hero">
       <img class="hero__logo" src="assets/logo.png" alt="BELTFED" />
-      <p class="hero__tagline">Roguelike Factory Defence</p>
+      <p class="hero__tagline">Roguelike Factory Defense</p>
       <div class="hero__buttons">
         <a
           class="btn-wishlist"
