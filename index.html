@@ -43,7 +43,7 @@
         socials: {
           x: "https://x.com/beltfedgame",
           youtube: "https://www.youtube.com/channel/UCvdlX-Bw5GphyX91nGGiDsA",
-          discord: "https://discord.com",
+          discord: "https://discord.gg/wh5hBFsJ",
           reddit: "https://reddit.com",
           bluesky: "https://bsky.app/profile/beltfedgame.com",
           threads: "https://www.threads.com/@beltfedgame",
@@ -639,27 +639,25 @@
           },
         };
         const row = document.getElementById("socialRow");
-        ["x", "reddit", "instagram", "tiktok", "more"].forEach(
-          function (key) {
-            const url = CONFIG.socials[key];
-            if (!url) return;
-            const def = ICONS[key];
-            const a = document.createElement("a");
-            a.className = "social-btn";
-            a.href = url;
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.setAttribute("aria-label", def.label);
-            a.title = def.label;
-            a.innerHTML =
-              '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="' +
-              (def.rule || "nonzero") +
-              '" d="' +
-              def.path +
-              '"/></svg>';
-            row.appendChild(a);
-          },
-        );
+        ["x", "youtube", "instagram", "tiktok", "more"].forEach(function (key) {
+          const url = CONFIG.socials[key];
+          if (!url) return;
+          const def = ICONS[key];
+          const a = document.createElement("a");
+          a.className = "social-btn";
+          a.href = url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.setAttribute("aria-label", def.label);
+          a.title = def.label;
+          a.innerHTML =
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="' +
+            (def.rule || "nonzero") +
+            '" d="' +
+            def.path +
+            '"/></svg>';
+          row.appendChild(a);
+        });
 
         document.getElementById("year").textContent = new Date().getFullYear();
 
