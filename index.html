@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Russo+One&display=swap"
       rel="stylesheet"
     />
 
@@ -181,19 +181,27 @@
           url("assets/hero.jpg") center / cover no-repeat;
       }
       .hero__logo {
-        width: min(560px, 82vw);
-        height: auto;
         margin: 0 auto 0.5rem;
-        filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.6));
+        font-family: "Russo One", sans-serif;
+        font-size: clamp(3rem, 12vw, 7rem);
+        line-height: 1;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        -webkit-text-stroke: 11px #383838;
+        paint-order: stroke fill;
+        text-shadow: 0 18px 30px rgba(0, 0, 0, 0.85);
       }
       .hero__tagline {
         margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
-        color: var(--text);
+        color: #fff;
         font-size: clamp(0.85rem, 2.4vw, 1.2rem);
         font-weight: 600;
         letter-spacing: 0.28em;
         text-transform: uppercase;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        -webkit-text-stroke: 3px #222;
+        paint-order: stroke fill;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
       }
       .hero__buttons {
         display: flex;
@@ -444,7 +452,7 @@
 
   <body>
     <header class="hero">
-      <img class="hero__logo" src="assets/logo.png" alt="BELTFED" />
+      <h1 class="hero__logo">BELTFED</h1>
       <p class="hero__tagline">Roguelike Factory Defense</p>
       <div class="hero__buttons">
         <a
