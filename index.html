@@ -182,15 +182,15 @@
       }
       .hero__logo {
         margin: 0 auto 0.5rem;
-        font-family: "Russo One", sans-serif;
-        font-size: clamp(3rem, 12vw, 7rem);
         line-height: 1;
-        color: #fff;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        -webkit-text-stroke: 11px #383838;
-        paint-order: stroke fill;
-        text-shadow: 0 18px 30px rgba(0, 0, 0, 0.85);
+      }
+      .hero__logo img {
+        display: block;
+        width: clamp(18rem, 70vw, 40rem);
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.85));
       }
       .hero__tagline {
         margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
@@ -452,7 +452,9 @@
 
   <body>
     <header class="hero">
-      <h1 class="hero__logo">BELTFED</h1>
+      <h1 class="hero__logo">
+        <img src="assets/beltfed-logo.png" alt="BELTFED" />
+      </h1>
       <p class="hero__tagline">Roguelike Factory Defense</p>
       <div class="hero__buttons">
         <a
