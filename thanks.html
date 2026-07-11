@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Thanks!</title>
+    <meta
+      name="description"
+      content="Thanks for joining the BELTFED mailing list."
+    />
+    <meta name="theme-color" content="#0c0c0e" />
+    <meta name="robots" content="noindex" />
+
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0c0c0e;
+        --surface: #1b1b1f;
+        --text: #f4f4f2;
+        --muted: #a0a0a4;
+        --accent: #ff7a18;
+        --accent-2: #ffb347;
+        --border: #2a2a30;
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1.25rem;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(12, 12, 14, 0.45) 0%,
+            rgba(12, 12, 14, 0.6) 55%,
+            rgba(12, 12, 14, 0.95) 100%
+          ),
+          url("assets/hero.jpg") center / cover no-repeat;
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .logo {
+        width: clamp(14rem, 55vw, 30rem);
+        height: auto;
+        margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+        filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.85));
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.6rem, 5vw, 2.75rem);
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      p {
+        max-width: 46ch;
+        margin: 0 auto clamp(2rem, 5vw, 2.75rem);
+        color: var(--muted);
+        font-size: clamp(1rem, 2.4vw, 1.15rem);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 56px;
+        padding: 0.85rem 1.9rem;
+        font-size: clamp(1rem, 2.4vw, 1.2rem);
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #1a1205;
+        background: linear-gradient(180deg, var(--accent-2), var(--accent));
+        border-radius: var(--radius);
+        box-shadow: 0 8px 24px rgba(255, 122, 24, 0.35);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          filter 0.15s ease;
+      }
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(255, 122, 24, 0.5);
+        filter: brightness(1.05);
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <img class="logo" src="assets/beltfed-logo.png" alt="BELTFED" />
+    <h1>CONFIRMED!</h1>
+    <p>Thanks for joining the mailing list!</p>
+    <a class="btn" href="https://beltfedgame.com">Back to the site</a>
+  </body>
+</html>
