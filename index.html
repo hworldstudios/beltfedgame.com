@@ -164,13 +164,13 @@
       }
       .hero {
         position: relative;
-        min-height: 100svh;
+        min-height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 2rem 1.25rem 5rem;
+        padding: clamp(2.5rem, 7vw, 4.5rem) 1.25rem;
         background:
           linear-gradient(
             180deg,
@@ -181,73 +181,35 @@
           url("assets/hero.jpg") center / cover no-repeat;
       }
       .hero__logo {
-        margin: 0 auto 0.5rem;
+        margin: 0 auto 0.35rem;
         line-height: 1;
       }
       .hero__logo img {
         display: block;
-        width: clamp(18rem, 70vw, 40rem);
+        width: clamp(11rem, 42vw, 22rem);
         max-width: 100%;
         height: auto;
         margin: 0 auto;
-        filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.85));
+        filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.85));
       }
       .hero__tagline {
-        margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+        margin: 0 auto clamp(1.25rem, 3vw, 1.75rem);
         color: #fff;
-        font-size: clamp(0.85rem, 2.4vw, 1.2rem);
+        font-size: clamp(0.7rem, 1.6vw, 0.9rem);
         font-weight: 600;
         letter-spacing: 0.28em;
         text-transform: uppercase;
-        -webkit-text-stroke: 3px #222;
+        -webkit-text-stroke: 1px #222;
         paint-order: stroke fill;
-        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
       }
       .hero__buttons {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         gap: 1rem;
       }
 
-      .scroll-cue {
-        position: absolute;
-        bottom: 1.4rem;
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--muted);
-        font-size: 0.7rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.35rem;
-        opacity: 0.8;
-      }
-      .scroll-cue .chev {
-        width: 16px;
-        height: 16px;
-        border-right: 2px solid currentColor;
-        border-bottom: 2px solid currentColor;
-        transform: rotate(45deg);
-        animation: bob 1.8s ease-in-out infinite;
-      }
-      @keyframes bob {
-        0%,
-        100% {
-          transform: rotate(45deg) translate(0, 0);
-        }
-        50% {
-          transform: rotate(45deg) translate(3px, 3px);
-        }
-      }
-
-      .trailer {
-        background: var(--bg-alt);
-        text-align: center;
-      }
       .section-title {
         margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
         font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -258,8 +220,8 @@
       .video-frame {
         position: relative;
         width: 100%;
-        max-width: 900px;
-        margin: 0 auto clamp(2rem, 5vw, 3rem);
+        max-width: 720px;
+        margin: 0 auto clamp(1.5rem, 3.5vw, 2rem);
         aspect-ratio: 16 / 9;
         border-radius: var(--radius);
         overflow: hidden;
@@ -486,9 +448,6 @@
           transform: none;
           transition: none;
         }
-        .scroll-cue .chev {
-          animation: none;
-        }
       }
     </style>
   </head>
@@ -499,6 +458,11 @@
         <img src="assets/beltfed-logo.png" alt="BELTFED" />
       </h1>
       <p class="hero__tagline">Roguelike Factory Defense</p>
+      <div class="video-frame" id="videoFrame">
+        <div class="placeholder">
+          Trailer coming soon — set the YouTube ID in CONFIG
+        </div>
+      </div>
       <div class="hero__buttons">
         <a
           class="btn-wishlist"
@@ -520,22 +484,7 @@
           Wishlist on Steam
         </a>
       </div>
-      <a class="scroll-cue" href="#trailer" aria-label="Scroll to trailer">
-        Trailer
-        <span class="chev" aria-hidden="true"></span>
-      </a>
     </header>
-
-    <section id="trailer" class="section trailer">
-      <div class="inner reveal">
-        <h2 class="section-title">Official Trailer</h2>
-        <div class="video-frame" id="videoFrame">
-          <div class="placeholder">
-            Trailer coming soon — set the YouTube ID in CONFIG
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="section socials">
       <div class="inner reveal mailing">
