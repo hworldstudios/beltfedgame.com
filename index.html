@@ -210,6 +210,49 @@
         gap: 1rem;
       }
 
+      .scroll-cue {
+        position: absolute;
+        bottom: clamp(1rem, 2.5vh, 1.6rem);
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        opacity: 0.85;
+        transition:
+          color 0.15s ease,
+          opacity 0.15s ease;
+      }
+      .scroll-cue:hover,
+      .scroll-cue:focus-visible {
+        color: var(--text);
+        opacity: 1;
+      }
+      .scroll-cue .chev {
+        width: 14px;
+        height: 14px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        animation: bob 1.8s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: rotate(45deg) translate(0, 0);
+        }
+        50% {
+          transform: rotate(45deg) translate(3px, 3px);
+        }
+      }
+
       .section-title {
         margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
         font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -448,6 +491,9 @@
           transform: none;
           transition: none;
         }
+        .scroll-cue .chev {
+          animation: none;
+        }
       }
     </style>
   </head>
@@ -484,9 +530,13 @@
           Wishlist on Steam
         </a>
       </div>
+      <a class="scroll-cue" href="#more" aria-label="Scroll down for more info">
+        More info
+        <span class="chev" aria-hidden="true"></span>
+      </a>
     </header>
 
-    <section class="section socials">
+    <section id="more" class="section socials">
       <div class="inner reveal mailing">
         <h2 class="section-title">Mailing List</h2>
         <p class="mailing__blurb">
